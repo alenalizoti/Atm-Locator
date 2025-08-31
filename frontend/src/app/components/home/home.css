@@ -1,0 +1,145 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+
+.dimmed {
+  z-index: 999;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.home-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/images/mobile-background1.png");
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px);
+  z-index: -1;
+}
+
+.map {
+  border-style: 100px solid #333; /* Frame color and thickness */
+  padding: 10px; /* Space between image and frame */
+  background-color: #fff; /* Optional background inside the frame */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+  border-radius: 8px; /* Optional rounded corners */
+  max-width: 100%;
+  height: auto;
+}
+
+.top-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 0;
+  margin-top: 10px;
+}
+
+.profile-link {
+  display: inline-block;
+}
+
+.profile-pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #007bff;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.main-photo img {
+  max-width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+}
+
+.bottom-text {
+  text-align: center;
+  font-size: 18px;
+  padding: 10px;
+}
+.main-photo {
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid #333;
+  margin-top: 10px;
+}
+
+.filter-bar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+  flex-wrap: wrap;
+  border-radius: 10px;
+}
+.bank-filter {
+  gap: 5px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.filter-bar select,
+.filter-bar button {
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  transition: all 0.2s ease-in-out;
+}
+
+.filter-bar select:focus,
+.filter-bar button:hover {
+  border-color: #1e90ff;
+  background-color: #e6f0ff;
+  outline: none;
+}
+
+.filter-bar button {
+  background-color: #1e90ff;
+  color: white;
+  cursor: pointer;
+}
+
+.filter-bar button:hover {
+  background-color: #187bcd;
+}
+.favouriteFilter{
+  display: flex;
+  align-items: center;
+  align-content: center;
+}

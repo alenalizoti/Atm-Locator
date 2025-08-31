@@ -1,0 +1,56 @@
+<div class="container">
+  <h2
+    mat-dialog-title
+    style="
+      color: rgb(0, 0, 0);
+      background-color: rgb(255, 255, 255);
+      border-radius: 15px;
+      margin: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      display: flex;
+      text-align: center;
+      font: 32px bold;
+    "
+  >
+    Which number do you see on atm screen?
+  </h2>
+  <mat-dialog-content>
+    <div class="number-options">
+      @for(num of data.numbers; track num){
+        <button
+        mat-raised-button
+        color="primary"
+        style="
+          background-color: white !important;
+          height: 80px;
+          width: 80px;
+          color: #0040ff !important;
+          border-radius: 50% !important;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+          padding: 12px 24px !important;
+          font-size: 30px !important;
+          min-width: 60px !important;
+          "
+        (click)="select(num)"
+        >
+        {{ num }}</button
+        >}
+      </div>
+    </mat-dialog-content>
+  
+  <mat-dialog-actions align="end">
+    <button
+      mat-button
+      mat-dialog-close
+      style="
+        margin-bottom: auto !important;
+        color: rgb(190 0 0);
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        font: 22px bold;
+      "
+    >
+      Cancel
+    </button>
+  </mat-dialog-actions>
+</div>

@@ -1,0 +1,43 @@
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+::ng-deep .mat-mdc-dialog-panel {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+::ng-deep .mat-mdc-dialog-container {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.mat-mdc-dialog-surface {
+    background-color: rgb(255, 255, 255) !important;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: #acc6ff !important; /* your desired background color */
+  border-radius: 12px !important;        /* your desired border radius */
+}
+
+.mat-mdc-tab-body-wrapper {
+  height: 100%;
+  width: 100%;
+}
+.mat-mdc-raised-button, .mat-mdc-raised-button .mdc-button__ripple {
+  border-radius: 0% !important;
+}
+
+.mat-mdc-raised-button .mat-mdc-button-touch-target {
+  top:0% !important;
+ 
+}
+.mat-mdc-raised-button:not(:disabled) {
+  color: #00ba09 !important;
+  background-color: #201a1b !important;
+}
+.mat-mdc-form-field {
+  width: 50%;
+}
+

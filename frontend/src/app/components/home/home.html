@@ -1,0 +1,74 @@
+<div class="home-container">
+  <div class="top-bar">
+    <app-burger-menu [isOpen]="isOpen"></app-burger-menu>
+    <mat-form-field
+      appearance="outline"
+      class="search-box"
+      [class.dimmed]="isOpen"
+    >
+      <mat-label>Search</mat-label>
+      <input
+        #searchInput
+        matInput
+        placeholder="Search..."
+        (keyup.enter)="onSearch(searchInput.value)"
+      />
+    </mat-form-field>
+
+
+    <div class="profile-link" (click)="onClick()" [class.dimmed]="isOpen">
+      <img
+        [src]="imageSrc + 'profilePicture.avif'"
+        alt="Profile"
+        class="profile-pic"
+      />
+    </div>
+  </div>
+
+  <div class="main-photo" [class.dimmed]="isOpen">
+    <app-map
+      [bankFilter]="bankFilter"
+      [atmLimit]="atmLimit"
+      [favouriteFilter]="favouriteFilter"
+      [searchedPlaces]="searchedPlaces"
+      class="app-map"
+    ></app-map>
+  </div>
+
+  <div class="filter-bar">
+    <div class="bank-filter">
+      <mat-form-field appearance="fill">
+        <mat-label>Bank</mat-label>
+        <mat-select [(ngModel)]="bankFilter">
+          <mat-option value="">All Banks</mat-option>
+          <mat-option *ngFor="let bank of bankOptions" [value]="bank"
+            >{{ bank }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>ATM Limit</mat-label>
+        <mat-select [(ngModel)]="atmLimit">
+          <mat-option [value]="0">All</mat-option>
+          <mat-option [value]="10">10</mat-option>
+          <mat-option [value]="25">25</mat-option>
+          <mat-option [value]="50">50</mat-option>
+          <mat-option [value]="100">100</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="favouriteFilter">
+      <button
+        mat-icon-button
+        (click)="toggleFavorite()"
+        [color]="favouriteFilter ? 'warn' : ''"
+      >
+        <mat-icon>{{ favouriteFilter ? 'star' : 'star_border' }}</mat-icon>
+      </button>
+    </div>
+    @if(isOpen){
+    <div class="overlay" (click)="onMenuToggled()"></div>
+    }
+  </div>
+</div>

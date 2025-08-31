@@ -1,0 +1,28 @@
+<div>
+  <nav>
+    <div class="navbar">
+      <div class="container nav-container">
+        <input class="checkbox" type="checkbox" name="" id="" />
+        <div class="hamburger-lines">
+          <span class="line line1"></span>
+          <span class="line line2"></span>
+          <span class="line line3"></span>
+        </div>
+        <div class="menu-items">
+          <li><a [routerLink]="'/home'" (click)="closeMenu()">Home</a></li>
+          <li>
+            <a [routerLink]="'/qrStorage/active'" (click)="closeMenu()"
+              >Active QR's</a
+            >
+          </li>
+          <li>
+            <a [routerLink]="'/qrStorage/history'" (click)="closeMenu()"
+              >History</a
+            >
+          </li>
+          <li><a href="/" (click)="logOut()">Log Out</a></li>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

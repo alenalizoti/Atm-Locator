@@ -1,0 +1,40 @@
+<div class="qr-code-menu">
+  <mat-tab-group>
+    <mat-tab label="Navigate">
+      <div class="tab-content">
+        <div class="main-photo">
+          <app-navigation-map [atm]="atm"></app-navigation-map>
+        </div>
+        <button mat-raised-button color="primary" (click)="openGoogleMaps()">
+          Open in Google Maps
+        </button>
+      </div>
+    </mat-tab>
+    <mat-tab label="QR Code">
+      <div class="tab-content qr-tab">
+          <cd-timer
+            [startTime]="this.left_time"
+            [endTime]="0"
+            [countdown]="true"
+            format="ms"
+            class="timer"
+          ></cd-timer>
+
+          <qrcode [qrdata]="qrDetails.token" [width]="qrWidth" ></qrcode>
+
+          <mat-card class="qr-info-card">
+            <mat-card-content>
+              <h2 class="qr-title">Scan at ATM</h2>
+              <p class="qr-instruction">
+                Use this QR code at the ATM where you started your transaction.
+              </p>
+              <p class="qr-expiry-warning">
+                <mat-icon color="warn">warning</mat-icon>
+                This code will expire when the timer reaches 0.
+              </p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

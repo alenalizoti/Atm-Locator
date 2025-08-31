@@ -1,0 +1,50 @@
+<div class="reservation-menu">
+  <mat-tab-group>
+    <mat-tab label="ATM Info">
+      <div class="tab-wrapper">
+        <div class="favorite-button-container">
+          <button
+            mat-icon-button
+            (click)="toggleFavorite()"
+            [color]="isFavorite ? 'warn' : ''"
+          >
+            <mat-icon>{{ isFavorite ? 'star' : 'star_border' }}</mat-icon>
+          </button>
+        </div>
+
+        <div class="tab-content">
+          <p><strong> &emsp; ATM Address:</strong><br />&emsp; {{ address }}</p>
+          <div class="map">
+            <img src="/images/gr.jpg" />
+          </div>
+        </div>
+
+        <div class="dialog-content">
+          <div class="amount-container">
+            <label for="amount">Amount</label>
+            <input id="amount" type="number" [(ngModel)]="amount" />
+          </div>
+          
+          <div class="button-container">
+            <div class="checkbox-wrapper-18">
+              <div class="round">
+                <input type="checkbox" id="checkbox-18" (click)="changeReceipt()"/>
+                <label for="checkbox-18"></label>
+              </div>
+            </div>
+            <button
+              mat-icon-button
+              class="qr-button"
+              (click)="generateQRCode()"
+            >
+              <mat-icon>qr_code</mat-icon>
+            </button>
+            <button mat-icon-button class="pin-button" (click)="generatePin()">
+              <mat-icon>dialpad</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

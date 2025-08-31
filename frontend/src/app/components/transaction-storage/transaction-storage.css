@@ -1,0 +1,131 @@
+.body{
+  background-image: url("/images/mobile-background1.png");
+  background-attachment: fixed; /* This is the key line */
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  min-height: 100%;
+}
+.qr-section {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: auto;
+
+  gap: 15px;
+}
+
+.qr-section h3 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+}
+
+.qr-item {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  width: 93%;
+  backdrop-filter: blur(6px);
+  background-color: rgba(201, 197, 197, 0.584);
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 5px;
+  transition: box-shadow 0.3s ease;
+}
+
+.qr-item:hover {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.qr-visual {
+  margin-right: 1rem;
+}
+
+.qr-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.qr-info {
+  flex: 1;
+}
+
+.qr-amount {
+  color: black;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.method {
+  font-weight: normal;
+  color: #555;
+  margin-left: 0.5rem;
+}
+
+.qr-expiry {
+  font-size: 0.85rem;
+  color: #ff0000;
+  margin-top: 0.25rem;
+}
+
+.back-button-container {
+  height: 6%;
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 1000;
+}
+
+.status-icon-active{
+  margin-right: 6px;
+  margin-bottom: 15px;
+  font-size: 24px;
+  vertical-align: middle;
+  color: #007e04;
+}
+.status-icon-used{
+  margin-right: 6px;
+  margin-bottom: 15px;
+  font-size: 24px;
+  vertical-align: middle;
+  color: #d20000;
+}
+.status-icon-inactive{
+  margin-right: 6px;
+  margin-bottom: 15px;
+  font-size: 24px;
+  vertical-align: middle;
+  color: #949494;
+}
+.trash-bin{
+  color: red
+}
+
+.header {
+  align-content: center !important;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.header-text {
+  width: fit-content;
+  backdrop-filter: blur(6px);
+  background-color: rgba(255, 255, 255, 0.2); /* light blur */
+  color: #ff0000;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+  border-radius: 30px;
+  padding: 10px;
+}
+

@@ -1,0 +1,134 @@
+@if (showFirstForm) {
+<div class="modal-content">
+  <div class="flip-box">
+    <div class="flip-box-inner" [class.flipped]="isFlipped">
+      <div class="flip-box-front">
+        <img src="images/credit-card.png" alt="Front" />
+        <div class="card-overlay">
+          <input
+            type="text"
+            class="card-number1"
+            maxlength="4"
+            pattern="\d*"
+            [(ngModel)]="cardPart1"
+            (input)="autoTab($event, part2)"
+            #part1
+            placeholder="1234"
+            (keypress)="allowOnlyDigits($event)"
+            (paste)="blockPasteNonDigits($event)"
+          />
+
+          <input
+            type="text"
+            class="card-number2"
+            maxlength="4"
+            pattern="\d*"
+            [(ngModel)]="cardPart2"
+            (input)="autoTab($event, part3)"
+            #part2
+            placeholder="5678"
+            (keypress)="allowOnlyDigits($event)"
+            (paste)="blockPasteNonDigits($event)"
+          />
+
+          <input
+            type="text"
+            class="card-number3"
+            maxlength="4"
+            pattern="\d*"
+            [(ngModel)]="cardPart3"
+            (input)="autoTab($event, part4)"
+            #part3
+            placeholder="9012"
+            (keypress)="allowOnlyDigits($event)"
+            (paste)="blockPasteNonDigits($event)"
+          />
+
+          <input
+            type="text"
+            class="card-number4"
+            maxlength="4"
+            pattern="\d*"
+            [(ngModel)]="cardPart4"
+            (input)="autoTab($event, part5)"
+            #part4
+            placeholder="3456"
+            (keypress)="allowOnlyDigits($event)"
+            (paste)="blockPasteNonDigits($event)"
+          />
+
+          <input
+            type="text"
+            class="card-expiryM"
+            maxlength="2"
+            pattern="\d*"
+            [(ngModel)]="expiryM"
+            (input)="autoTab($event, part6)"
+            #part5
+            placeholder="MM"
+            (keypress)="allowOnlyDigits($event)"
+            (paste)="blockPasteNonDigits($event)"
+          />
+
+          <input
+            type="text"
+            class="card-expiryY"
+            maxlength="2"
+            pattern="\d*"
+            [(ngModel)]="expiryY"
+            (input)="autoTab($event, part7)"
+            #part6
+            placeholder="YY"
+            (keypress)="allowOnlyDigits($event)"
+            (paste)="blockPasteNonDigits($event)"
+          />
+
+          <input
+            placeholder="  Your full name"
+            class="card-name"
+            #part7
+            [(ngModel)]="cardHolder"
+            (input)="onNameChange($event)"
+            (keypress)="allowOnlyLetters($event)"
+            (paste)="blockPasteNonLetters($event)"
+            (blur)="onNameInputDone()"
+            (keyup.enter)="onNameInputDone()"
+          />
+        </div>
+      </div>
+      <div class="flip-box-back">
+        <img src="images/credit-card-back.png" alt="Back" />
+        <div class="card-overlay">
+          <input
+            type="text"
+            class="card-cvv"
+            maxlength="3"
+            pattern="\d*"
+            [(ngModel)]="cvv"
+            #cvvInput
+            placeholder="CVV"
+            (keypress)="allowOnlyDigits($event)"
+            (paste)="blockPasteNonDigits($event)"
+            (keyup.enter)="cvvDone()"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="submit" (click)="next()">Next</button>
+</div>
+} @else{
+<!-- Second Form -->
+<div class="bank-form">
+  <mat-form-field>
+    <mat-label>Bank</mat-label>
+    <mat-select [(ngModel)]="bankFilter">
+      <mat-option value="">All Banks</mat-option>
+      <mat-option *ngFor="let bank of bankOptions" [value]="bank"
+        >{{ bank }}</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+  <button class="submit" (click)="save()">Save</button>
+</div>
+}

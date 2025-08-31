@@ -1,0 +1,49 @@
+<div class="pin-code-menu">
+  <mat-tab-group>
+    <mat-tab label="Navigate">
+      <div class="tab-content">
+        <div class="main-photo">
+          <app-navigation-map [atm]="atm"></app-navigation-map>
+        </div>
+        <button mat-raised-button color="primary" (click)="openGoogleMaps()">
+          Open in Google Maps
+        </button>
+      </div>
+    </mat-tab>
+    <mat-tab label="Pin Code">
+      <div class="tab-content pin-tab">
+        <cd-timer
+          [startTime]="this.left_time"
+          [endTime]="0"
+          [countdown]="true"
+          format="ms"
+          class="timer"
+        ></cd-timer>
+
+        <div class="token-container">
+          <span
+            class="token-text"
+            [class.blurred]="!showToken"
+            (click)="toggleTokenVisibility()"
+            title="Click to reveal"
+          >
+            {{ pinDetails.token }}
+          </span>
+        </div>
+
+        <mat-card class="pin-info-card">
+          <mat-card-content>
+            <h2 class="pin-title">This is your OTP for withdrawing</h2>
+            <p class="pin-instruction">
+              Use this pin code at the ATM where you prestaged your transaction.
+            </p>
+            <p class="pin-expiry-warning">
+              <mat-icon color="warn">warning</mat-icon>
+              This code will expire when the timer reaches 0.
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

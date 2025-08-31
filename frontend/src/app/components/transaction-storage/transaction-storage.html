@@ -1,0 +1,153 @@
+<div class="body">
+  @if(show){
+  <div class="qr-section">
+    <div class="back-button-container">
+      <button
+        style="
+          backdrop-filter: blur(6px);
+          background-color: rgba(255, 255, 255, 0.2); /* light blur */
+        "
+        mat-icon-button
+        color="primary"
+        (click)="goHome()"
+        aria-label="Back to Home"
+      >
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    </div>
+    @if(view === 'active'){
+    <div class="header">
+      <section
+        style="
+          backdrop-filter: blur(6px);
+          background-color: rgba(255, 255, 255, 0.2); /* light blur */
+          border-radius: 30px;
+          flex-direction: column;
+        "
+      >
+        <!-- Method Toggle Group -->
+        <mat-button-toggle-group
+          name="favoriteColor"
+          aria-label="Favorite Color"
+          [value]="method"
+          [hideSingleSelectionIndicator]="true"
+          style="
+            backdrop-filter: blur(6px);
+            background-color: rgba(255, 255, 255, 0.2); /* light blur */
+          "
+        >
+          <mat-button-toggle value="qr" (click)="toggleMethod('qr')"
+            >QR</mat-button-toggle
+          >
+          <mat-button-toggle value="pin" (click)="toggleMethod('pin')"
+            >PIN</mat-button-toggle
+          >
+        </mat-button-toggle-group>
+      </section>
+    </div>
+    } @else{
+    <div class="header">
+      <section
+        style="
+          display: flex;
+          border-radius: 30px;
+          flex-direction: row;
+          gap: 15px;
+        "
+      >
+        <!-- Status Toggle Group -->
+        <mat-button-toggle-group
+          name="favoriteColor"
+          aria-label="Favorite Color"
+          [hideSingleSelectionIndicator]="true"
+          [value]="status"
+          style="
+            backdrop-filter: blur(6px);
+            background-color: rgba(255, 255, 255, 0.2); /* light blur */
+          "
+        >
+          <mat-button-toggle value="active" (click)="toggleStatus('active')"
+            >Active</mat-button-toggle
+          >
+          <mat-button-toggle value="inactive" (click)="toggleStatus('inactive')"
+            >Inactive</mat-button-toggle
+          >
+        </mat-button-toggle-group>
+
+        <!-- Method Toggle Group -->
+        <mat-button-toggle-group
+          name="favoriteColor"
+          aria-label="Favorite Color"
+          [value]="method"
+          [hideSingleSelectionIndicator]="true"
+          style="
+            backdrop-filter: blur(6px);
+            background-color: rgba(255, 255, 255, 0.2); /* light blur */
+          "
+        >
+          <mat-button-toggle value="qr" (click)="toggleMethod('qr')"
+            >QR</mat-button-toggle
+          >
+          <mat-button-toggle value="pin" (click)="toggleMethod('pin')"
+            >PIN</mat-button-toggle
+          >
+        </mat-button-toggle-group>
+      </section>
+    </div>
+    } @for (transaction of transactionArray; track transaction.expires_at){
+    <div class="qr-item" (click)="openTransactionData(transaction)">
+      <div class="qr-visual">
+        <img
+          [src]="'https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=' + transaction.id"
+          alt="QR Code"
+          class="qr-image"
+        />
+      </div>
+
+      <div class="qr-info">
+        <p class="qr-amount">
+          {{ transaction.amount | currency:'USD' }}
+          <span class="method">({{ transaction.method }})</span>
+        </p>
+        @if(transaction.expires_at > now && !transaction.is_used){
+        <p class="qr-expiry">
+          Expires at: <br />{{ transaction.expires_at | date:'short' }}
+        </p>
+        } @else if(transaction.is_used){
+        <p class="qr-expiry">
+          Expired at(used): <br />{{ transaction.expires_at | date:'short' }}
+        </p>
+        } @else{
+        <p class="qr-expiry">
+          Expired at: <br />{{ transaction.expires_at | date:'short' }}
+        </p>
+        }
+      </div>
+      @if(transaction.expires_at > now && !transaction.is_used){
+      <mat-icon color="primary" class="status-icon-active" title="Active"
+        >check_circle</mat-icon
+      >
+      } @else if(transaction.is_used){
+      <mat-icon class="status-icon-used" title="Used">check_circle</mat-icon>
+      } @else{
+      <mat-icon class="status-icon-inactive" title="Expired"
+        >check_circle</mat-icon
+      >
+      }
+      <div class="qr-actions">
+        <button
+          mat-icon-button
+          style="width: 100%; height: 100%; font-size: 35px; color: red"
+          (click)="onSubmit('delete', transaction.id)"
+          aria-label="Delete"
+        >
+          <mat-icon [inline] = 'true'
+            >delete</mat-icon
+          >
+        </button>
+      </div>
+    </div>
+    }
+  </div>
+  }
+</div>

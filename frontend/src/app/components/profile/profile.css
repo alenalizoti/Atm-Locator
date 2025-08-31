@@ -1,0 +1,244 @@
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  font-family: "Segoe UI", sans-serif;
+  gap: 10px;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.profile-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/images/mobile-background1.png");
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px);
+  z-index: -1;
+}
+
+.profile-header {
+  position: relative;
+  padding: 10px;
+}
+
+.profile-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-pic-wrapper {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.profile-pic-wrapper .edit-icon {
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 4px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+}
+
+.profile-pic {
+  width: 175px;
+  height: 175px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 3px solid #007bff;
+}
+
+@media (min-width: 600px) {
+  .profile-container {
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.edit-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #007bff;
+  backdrop-filter: blur(6px);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.edit-icon-photo {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 8px;
+  color: #007bff;
+  position: absolute;
+  left: 100px;
+  top: 80%;
+  transform: translateY(-50%);
+}
+
+.add-card button {
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  background-color: #28a745;
+  color: white;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  font-size: 24px;
+  border: none;
+  box-shadow: 4px 4px rgba(0, 0, 0, 0.2);
+}
+.large-icon {
+  height: 60px; /* Adjust the height as needed */
+  width: 68px; /* Adjust the width as needed */
+  font-size: 68px; /* Adjust the font-size as needed */
+}
+.add-card-btn:hover {
+  background-color: #123c73;
+}
+
+.editable-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.editable-row button.edit-icon {
+  position: absolute;
+  right: 0;
+}
+
+.card-section{
+  margin-top: 35px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  width: 100%;
+  gap: 15px;
+}
+
+.card-item {
+  height: 65px;
+  width: 92%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f1f1f1;
+  box-shadow: 6px 6px #00000095;
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+}
+
+
+.card-logo {
+  width: 75px;
+  height: auto;
+}
+
+
+.card-number {
+  align-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  height: fit-content;
+  gap: 5px;
+}
+.card-actions button {
+  width: 40px; /* or your preferred size */
+  height: 40px;
+  font-size: 24px; /* controls icon size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.back-button-container{
+  background: none;
+  position: fixed;
+  left: 16px;
+  backdrop-filter: blur(6px);
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.logout-button {
+  background: none;
+  position: fixed;
+  right: 16px;
+  backdrop-filter: blur(6px);
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+
+.name-container {
+  display: inline-block;
+  backdrop-filter: blur(6px);
+  background-color: rgba(255, 255, 255, 0.8); /* light blur */
+  box-shadow: 6px 6px rgba(0, 0, 0, 0.3);
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.name-text {
+  color: #ff0000;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
+.email-container {
+  display: inline-block;
+  backdrop-filter: blur(6px);
+  background-color: rgba(255, 255, 255, 0.8); /* light blur */
+  box-shadow: 6px 6px rgba(0, 0, 0, 0.3);
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.email-text {
+  color: #ff0000;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
+
+.save-container{
+  margin-right: auto;
+  color: #ff0000;
+  width: fit-content;
+  backdrop-filter: blur(6px);
+  background-color: rgba(255, 255, 255, 0.2); /* light blur */
+  border-radius: 8px;
+  padding: 5px;
+}

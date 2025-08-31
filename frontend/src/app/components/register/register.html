@@ -1,0 +1,78 @@
+<section class="container forms">
+  <div class="form login">
+    <div class="form-content">
+      <header>
+        <img src="images/NATL.png" alt="Logo" class="logo" />
+        <span class="title">Signup</span>
+      </header>
+      <form action="#">
+        <div class="field input-field">
+          <input
+            type="text"
+            name="name"
+            [(ngModel)]="name"
+            placeholder="Name"
+            class="input"
+          />
+        </div>
+        <div class="field input-field">
+          <input
+            type="text"
+            name="lastName"
+            [(ngModel)]="lastName"
+            placeholder="Last Name"
+            class="input"
+          />
+        </div>
+        <div class="field input-field">
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="email"
+            placeholder="Email"
+            class="input"
+          />
+        </div>
+        <div class="field input-field">
+          <input
+            type="password"
+            name="password"
+            [(ngModel)]="password"
+            placeholder="Password"
+            class="password"
+          />
+          <i class="bx bx-hide eye-icon"></i>
+        </div>
+        <div class="field button-field">
+          <button type="submit" (click)="register()">Signup</button>
+        </div>
+        <div class="field button-field">
+          <button type="button" (click)="loginGuest()">
+            Log in as a guest
+          </button>
+        </div>
+      </form>
+      <div class="form-link">
+        <span>
+          Already have an account?
+          <a [routerLink]="'/'" class="link signup-link">Login</a>
+        </span>
+      </div>
+    </div>
+    <div class="line"></div>
+    <!-- <div class="media-options">
+      <a href="#" class="field facebook">
+        <i class='bx bxl-facebook facebook-icon'></i>
+        <span>Login with Facebook</span>
+      </a>
+    </div>
+    <div class="media-options">
+      <a href="#" class="field google">
+        <img src="images/google.png" alt="" class="google-img">
+        <span>Signup with Google</span>
+      </a>
+    </div> -->
+  </div>
+</section>
+<!-- JavaScript -->
+<script src="script.js"></script>

@@ -1,0 +1,115 @@
+.pin-code-menu {
+  width: 100%;
+  height: 100%;
+  z-index: 2500;
+}
+.pin-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #d61212;
+}
+
+.pin-section {
+  display: flex;
+  flex-direction : column;
+  align-items: center;
+  gap: 16px;
+}
+
+.pin-info-card {
+  width: 95%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.pin-title {
+  margin-bottom: 8px;
+}
+
+.pin-instruction {
+  font-size: 1rem;
+  color: #333;
+}
+
+.pin-expiry-warning {
+  color: red;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.timer {
+
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #000000;
+  padding: 10px 20px;
+  border-radius: 8px;
+  display: inline-block;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+mat-tab-group {
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.tab-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* or 100vh if needed */
+}
+
+.tab-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.main-photo img {
+  max-width: 100%;
+  max-height: 80%;
+  object-fit: contain;
+}
+.main-photo {
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.token-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.token-text {
+  font-size: 5rem;
+  font-weight: 800;
+  padding: 30px 60px;
+  background-color: #00000094;
+  color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  user-select: none;
+  transition: filter 0.3s ease;
+}
+
+.blurred {
+  filter: blur(12px);
+}
+

@@ -1,0 +1,110 @@
+<div class="profile-container">
+  <div class="profile-header">
+    <button class="logout-button" mat-icon-button (click)="onSubmit('log-out')">
+      <mat-icon>logout</mat-icon>
+    </button>
+    <div>
+      <button
+        class="back-button-container"
+        mat-icon-button
+        color="primary"
+        (click)="goHome()"
+        aria-label="Back to Home"
+      >
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    </div>
+
+    <div class="profile-center">
+      <img [src]="photo" alt="Profile" class="profile-pic" />
+    </div>
+  </div>
+
+  <div class="editable-row">
+    @if (editingField !== 'name') {
+    <div class="name-container">
+      <span class="name-text">{{name}}</span>
+    </div>
+
+    } @else {
+    <mat-form-field
+      appearance="outline"
+      style="background-color: white; height: 57px"
+    >
+      <mat-label>Edit Name</mat-label>
+      <input matInput [(ngModel)]="name" (keyup.enter)="onSubmit('name')" />
+    </mat-form-field>
+    }
+    <button
+      mat-icon-button
+      [title]="editingField ? 'Save' : 'Edit Name'"
+      class="edit-icon"
+      (click)="toggleEdit('name')"
+    >
+      <mat-icon>{{ editingField === 'name' ? 'check' : 'edit' }}</mat-icon>
+    </button>
+  </div>
+
+  <div class="editable-row">
+    <div class="email-container">
+      <span class="email-text">{{email}}</span>
+    </div>
+  </div>
+  <div class="card-section">
+    @for (card of cardsToShow; track card.card_number) {
+    <div class="card-item">
+      <div class="card-info">
+        <img
+          [src]="'images/' + card.card_type + '.png'"
+          [alt]="card.card_type + ' logo'"
+          class="card-logo"
+        />
+        <p class="card-number">
+          **** **** **** {{ card.card_number.slice(-4) }}
+        </p>
+      </div>
+
+      <div class="card-actions">
+        @if (card.is_main) {
+        <button
+          mat-icon-button
+          (click)="onSubmit('main', card.id)"
+          aria-label="Star"
+        >
+          <mat-icon
+            style="width: 40px; height: 40px; font-size: 40px; color: blue"
+            >star</mat-icon
+          >
+        </button>
+        } @else {
+        <button
+          mat-icon-button
+          (click)="onSubmit('set-main', card.id)"
+          aria-label="star_border"
+        >
+          <mat-icon
+            style="width: 40px; height: 40px; font-size: 40px; color: blue"
+            >star_border</mat-icon
+          >
+        </button>
+        }
+        <button
+          mat-icon-button
+          (click)="onSubmit('remove', card.id)"
+          aria-label="Delete"
+        >
+          <mat-icon
+            style="width: 40px; height: 40px; font-size: 40px; color: red"
+            >delete</mat-icon
+          >
+        </button>
+      </div>
+    </div>
+    }
+    <div class="add-card">
+      <button (click)="onSubmit('add-card')">
+        <mat-icon class="large-icon">add</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
